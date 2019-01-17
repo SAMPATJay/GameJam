@@ -1,5 +1,35 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &182402781
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 182402782}
+  m_Layer: 9
+  m_Name: BombSpawn
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &182402782
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 182402781}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 3.2, z: -0.000000007450581}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 843728062}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &843728061
 GameObject:
   m_ObjectHideFlags: 0
@@ -27,7 +57,8 @@ Transform:
   m_LocalRotation: {x: 0.5, y: 0.5, z: -0.5, w: 0.5}
   m_LocalPosition: {x: 1, y: -0.099999994, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 182402782}
   m_Father: {fileID: 3861181191066486851}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: -90}
@@ -125,6 +156,7 @@ GameObject:
   - component: {fileID: 7361463660177321935}
   - component: {fileID: 7361463660177321932}
   - component: {fileID: 1149501711}
+  - component: {fileID: 4578419473860284294}
   m_Layer: 9
   m_Name: Player
   m_TagString: Player
@@ -213,14 +245,14 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7361463660177321933}
   serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
+  m_Mass: 5
+  m_Drag: 5
   m_AngularDrag: 0.05
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 116
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
 --- !u!114 &7361463660177321932
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -233,10 +265,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4908fe75fd11654c8f214ef401bee69, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementSpeed: 5
+  movementSpeed: 3
   isColliding: 0
   bomb: {fileID: 8770996591174182656, guid: baf6648bc234a92429e43fce5f45b550, type: 3}
-  pointer: {fileID: 843728061}
+  pointer: {fileID: 182402781}
 --- !u!65 &1149501711
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -248,5 +280,18 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.7579111, y: 0.61004364, z: 0.25457427}
-  m_Center: {x: 0.8697341, y: 0, z: 0}
+  m_Size: {x: 0.7579111, y: 0.61004364, z: 0.19787632}
+  m_Center: {x: 0.86973417, y: 0, z: 0}
+--- !u!114 &4578419473860284294
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7361463660177321933}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e77e3e9b98e1f2642ab1c51ad8768cc8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isInside: 0

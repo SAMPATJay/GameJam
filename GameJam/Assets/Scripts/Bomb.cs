@@ -18,25 +18,32 @@ public class Bomb : MonoBehaviour
 
     }
 
-    void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.tag == "Breakable")
-        {
-            Destroy(other.gameObject,timerTime);
-        }
-    }
+
     void OnTriggerStay(Collider other)
     {
         if (other.gameObject.tag == "Breakable")
         {
             Destroy(other.gameObject, timerTime);
         }
-    }
-    /*void OnTriggerExit(Collider other)
-    {
-        if (other.gameObject.tag == "Breakable")
+        if (other.gameObject.tag=="Player"&& GameObject.FindGameObjectWithTag("Player").GetComponent<BombDetector>().isInside == true)
         {
             Destroy(other.gameObject, timerTime);
         }
-    }*/
+        if (other.gameObject.tag == "Enemy" /*&& GameObject.FindGameObjectWithTag("Enemy").GetComponent<BombDetector>().isInside == true*/)
+        {
+            Destroy(other.gameObject, timerTime);
+        }
+    }
+    void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.tag == "Player")
+        {
+            GameObject.FindGameObjectWithTag("Player").GetComponent<BombDetector>().isInside = false;
+        }
+        if (other.gameObject.tag == "Enemy")
+        {
+            //GameObject.FindGameObjectWithTag("Enemy").GetComponent<BombDetector>().isInside = false;
+        }
+    }
+
 }

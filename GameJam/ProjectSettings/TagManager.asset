@@ -8,6 +8,7 @@ TagManager:
   - Enemy
   - Breakable
   - Unbreakable
+  - Pit
   layers:
   - Default
   - TransparentFX

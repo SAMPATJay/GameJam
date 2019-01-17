@@ -57,6 +57,7 @@ public class Player : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
+        
         if (other.gameObject.tag == "Breakable" || other.gameObject.tag == "Unbreakable" || other.gameObject.tag == "Enemy")
         {
             isColliding = true;
@@ -64,6 +65,10 @@ public class Player : MonoBehaviour
         else
         {
             isColliding = false;
+        }
+        if (other.gameObject.tag == "Pit")
+        {
+            Destroy(gameObject, 0.1f);
         }
     }
     void OnTriggerStay(Collider other)
@@ -76,16 +81,16 @@ public class Player : MonoBehaviour
         {
             isColliding = false;
         }
+        if (other.gameObject.tag == "Pit")
+        {
+            Destroy(gameObject, 0.1f);
+        }
     }
     void OnTriggerExit(Collider other)
     {
         if (other.gameObject.tag == "Breakable" || other.gameObject.tag == "Unbreakable" || other.gameObject.tag == "Enemy")
         {
             isColliding = false;
-        }
-        else
-        {
-            isColliding = true;
         }
     }
 }
