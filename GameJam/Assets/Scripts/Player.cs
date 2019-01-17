@@ -12,6 +12,8 @@ public class Player : MonoBehaviour
 
     public GameObject bomb;
 
+    public GameObject score;
+
     public GameObject pointer;
 
     private float moveHor, moveVer, lastVer, lastHor, angle;
@@ -19,10 +21,13 @@ public class Player : MonoBehaviour
     Transform pointerPivot;
     Rigidbody rb;
 
+    ScoreCtr scrCtr;
+
     void Start()
     {
         pointerPivot = gameObject.GetComponentInChildren<Transform>();
         rb = gameObject.GetComponent<Rigidbody>();
+        scrCtr = score.GetComponent<>();
     }
 
     // Update is called once per frame
